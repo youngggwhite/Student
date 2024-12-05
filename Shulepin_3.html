@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задания по JavaScript</title>
+</head>
+<body>
+    <script>
+
+        function task1() {
+            let arr = [];
+            for (let i = 0; i < 15; i++) {
+                arr.push(Math.floor(Math.random() * (30 - (-10) + 1)) + (-10));
+            }
+
+            let positiveNumbers = arr.filter(num => num > 0);
+            let average = positiveNumbers.reduce((sum, num) => sum + num, 0) / positiveNumbers.length;
+
+            console.log('Массив: ', arr);
+            console.log('Среднее арифметическое положительных элементов: ', average);
+        }
+
+        function task2() {
+            let arr = [-5, 3, -7, 2, 8, -4]; // Пример массива
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < 0) {
+                    arr[i] = arr[i] * arr[i];
+                }
+            }
+
+            console.log('Массив после замены отрицательных чисел на их квадраты: ', arr);
+        }
+
+        function task3() {
+            let arr = [-5, 3, 0, -7, 2, 8, 0, -4]; // Пример массива
+
+            let positiveNumbers = arr.filter(num => num > 0);
+            let negativeNumbers = arr.filter(num => num < 0);
+            let zeros = arr.filter(num => num === 0);
+
+            let averagePositive = positiveNumbers.length > 0 ? positiveNumbers.reduce((sum, num) => sum + num, 0) / positiveNumbers.length : 0;
+            let averageNegative = negativeNumbers.length > 0 ? negativeNumbers.reduce((sum, num) => sum + num, 0) / negativeNumbers.length : 0;
+            let numberOfZeros = zeros.length;
+
+            console.log('Среднее арифметическое положительных чисел: ', averagePositive);
+            console.log('Среднее арифметическое отрицательных чисел: ', averageNegative);
+            console.log('Число нулей: ', numberOfZeros);
+        }
+
+        function task4() {
+            let redCount = 0;
+            for (let i = 0; i < 1000000; i++) {
+                let randomValue = Math.floor(Math.random() * 3);
+                if (randomValue === 0) {
+                    redCount++;
+                }
+            }
+
+            console.log('Красное выпадало: ', redCount, ' раз.');
+        }
+
+        function additionalTask() {
+            let arr = [];
+            let maxLength = 0;
+            let currentLength = 1;
+            let lastValue = Math.floor(Math.random() * 3); 
+
+            for (let i = 0; i < 1000000; i++) {
+                let randomValue = Math.floor(Math.random() * 3); 
+                arr.push(randomValue);
+
+                if (randomValue === lastValue) {
+                    currentLength++;
+                } else {
+                    maxLength = Math.max(maxLength, currentLength);
+                    currentLength = 1; 
+                }
+
+                lastValue = randomValue;
+            }
+
+            maxLength = Math.max(maxLength, currentLength);
+
+            console.log('Длина самой длинной последовательности: ', maxLength);
+        }
+
+        task1();
+        task2();
+        task3();
+        task4();
+        additionalTask();
+
+    </script>
+
+</body>
+</html>
