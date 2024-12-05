@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS4</title>
+</head>
+<body>
+    <script>
+        function showMessage() {
+            let message = "Привет!"; 
+            alert(message);
+        }
+        showMessage();
+    
+        function isPalindrome(str) {
+            let reversedStr = str.split('').reverse().join('');
+            return str === reversedStr;
+        }
+
+        console.log(isPalindrome("madam")); // true
+        console.log(isPalindrome("hello")); // false
+
+        function replaceNegativeNumbers(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < 0) {
+                    arr[i] = arr[i] * arr[i]; 
+                }
+            }
+            return arr;
+        }
+        let arr = [-5, 12, -3, 7, -1, 6, 0, -8];
+        console.log(replaceNegativeNumbers(arr));
+
+        
+        class User {
+            constructor(name) {
+                this.name = name;
+            }
+
+            sayHi() {
+                console.log(`Привет, ${this.name}!`);
+            }
+        }
+        let user = new User("Иван");
+        user.sayHi(); // Привет, Иван!
+
+        class UserWithMessage {
+            constructor(userName) {
+                this.userName = userName;
+            }
+
+            showMessage() {
+                let message = `Привет, ${this.userName}`;
+                alert(message);
+            }
+        }
+
+        let user2 = new UserWithMessage('Вася');
+        user2.showMessage();
+    </script>
+</body>
+</html>
