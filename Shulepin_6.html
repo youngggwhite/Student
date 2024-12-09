@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS6</title>
+</head>
+<body>
+    <script>
+        const arr1 = [1, 2, 3];
+        const increasedArr = arr1.map(item => item + 10);
+        const tripledArr = arr1.map(item => item * 3);
+
+        console.log("Увеличенные на 10:", increasedArr); 
+        console.log("Умноженные на 3:", tripledArr);   
+
+        const birthYears = [1990, 2000, 2010];
+        const currentYear = new Date().getFullYear();
+        const ages = birthYears.map(year => currentYear - year);
+
+        console.log("Возраст:", ages); 
+
+        const persons = [
+            { name: 'Peter', age: 16 },
+            { name: 'Danya', age: 18 },
+            { name: 'John', age: 27 },
+            { name: 'Jane', age: 14 },
+            { name: 'Tony', age: 24 },
+        ];
+
+        const fullAge = persons.filter(person => person.age >= 18);
+        console.log("Совершеннолетние:", fullAge);
+
+        const isAdmin = { name: 'Danya', isAdmin: true };
+        if (isAdmin.isAdmin) {
+            console.log(`Администратор сайта: ${isAdmin.name}`);
+        }
+
+        const grades = [3, 4, 5, 5, 4];
+        const averageGrade = grades.reduce((sum, grade) => sum + grade, 0) / grades.length;
+
+        console.log("Средний балл студентов:", averageGrade); 
+
+        const strArray = ['JavaScript', 'Python', 'PHP', 'Java', 'C'];
+
+        function mapForEach(arr, fn) {
+            return arr.map(fn);
+        }
+
+        const binaryArray = mapForEach(strArray, item => item.length <= 3 ? 0 : 1);
+        console.log("Массив с нулями и единицами:", binaryArray); 
+    </script>
+</body>
+</html>
