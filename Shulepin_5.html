@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS5</title>
+</head>
+<body>
+    <script>    
+        const add = (a, b) => a + b;
+        const subtract = (a, b) => a - b;
+        const multiply = (a, b) => a * b;
+        const divide = (a, b) => b !== 0 ? a / b : "Деление на ноль невозможно";
+
+        console.log(add(5, 3));        
+        console.log(subtract(5, 3));   
+        console.log(multiply(5, 3));   
+        console.log(divide(5, 0));    
+     
+        let checkAge = function(age) {
+            return age >= 18 ? "Доступ разрешён" : "Доступ запрещён";
+        };
+
+        console.log(checkAge(20)); 
+        console.log(checkAge(15)); 
+
+        const isPalindrome = str => str === str.split('').reverse().join('');
+        console.log(isPalindrome("ivanov")); 
+        console.log(isPalindrome("anna"));   
+
+        const average = arr => arr.reduce((sum, num) => sum + num, 0) / arr.length;
+        console.log(average([1, 2, 3, 4, 5])); 
+
+        const daysToNewYear = () => {
+            let today = new Date();
+            let newYear = new Date(today.getFullYear() + 1, 0, 1);
+            let diff = newYear - today;
+            return Math.ceil(diff / (1000 * 60 * 60 * 24));
+        };
+
+        console.log(`До нового года осталось: ${daysToNewYear()} дней`);
+
+        const empty = () => {};
+        console.log(empty()); 
+
+        const arr = [5, 6, 13, 0, 1, 18, 23];
+
+        const sum = arr.reduce((a, b) => a + b, 0);
+        const even = arr.filter(v => v % 2 === 0);
+        const double = arr.map(v => v * 2);
+
+        console.log("Сумма:", sum);        
+        console.log("Чётные:", even);   
+        console.log("Умноженные на 2:", double);
+
+        const emails = ["test@gmail.com", "user@yahoo.com", "admin@hotmail.com", "example@gmail.com"];
+        const filterEmails = domain => emails.filter(email => email.includes(domain));
+
+        console.log(filterEmails("gmail")); 
+        console.log(filterEmails("yahoo")); 
+    </script>
+</body>
+</html>
