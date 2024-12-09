@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS7</title>
+</head>
+<body>
+    <script>
+        const clientBank = {
+            name: "Иван Иванов",
+            accountNumber: "123456789",
+            [Symbol("status")]: "VIP"
+        };
+
+        const clinicWorker = {
+            name: "Анна Смирнова",
+            position: "Врач",
+            [Symbol("accessLevel")]: "Admin"
+        };
+
+        const citizenRF = {
+            name: "Петр Петров",
+            passportNumber: "4510 123456",
+            [Symbol("rights")]: "Гражданские права"
+        };
+
+        console.log("Клиент банка:", clientBank);
+        console.log("Работник клиники:", clinicWorker);
+        console.log("Гражданин РФ:", citizenRF);
+
+        console.log("Статус клиента:", clientBank[Object.getOwnPropertySymbols(clientBank)[0]]);
+        console.log("Уровень доступа:", clinicWorker[Object.getOwnPropertySymbols(clinicWorker)[0]]);
+        console.log("Права гражданина:", citizenRF[Object.getOwnPropertySymbols(citizenRF)[0]]);
+
+        const number = +prompt('Загадайте цифру до 9', '');
+        switch (number) {
+            case 1:
+                alert('Вы ввели число 1');
+                break;
+            case 2:
+                alert('Вы ввели число 2');
+                break;
+            case 8:
+            case 9:
+                alert('Вы ввели число 8, а может и 9');
+                break;
+            default:
+                alert('Вы ввели другое число');
+        }
+
+        const min = +prompt('Введите число от 0 до 59', '');
+        switch (true) {
+            case min >= 0 && min < 15:
+                alert('Первая четверть');
+                break;
+            case min >= 15 && min < 30:
+                alert('Вторая четверть');
+                break;
+            case min >= 30 && min < 45:
+                alert('Третья четверть');
+                break;
+            case min >= 45 && min < 60:
+                alert('Четвёртая четверть');
+                break;
+            default:
+                alert('Число вне диапазона 0-59');
+        }
+
+        const str = prompt('Введите строку с цифрами', '');
+        if (str[0] === '1' || str[0] === '2' || str[0] === '3') {
+            alert('Первая цифра 1, 2 или 3');
+        } else {
+            alert('нет');
+        }
+
+        const phoneNumber = "1234567890";
+        if (str.includes(phoneNumber)) {
+            alert(`Ваш номер телефона (${phoneNumber}) найден в строке.`);
+        } else {
+            alert('Ваш номер телефона не найден в строке.');
+        }
+    </script>
+</body>
+</html>
